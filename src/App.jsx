@@ -5,7 +5,7 @@ import SignUpPage from "./components/signUpPage/signUpPage";
 function App() {
   return (
     <Routes>
-        <Route exact path="/SignIn" element={<SignInPage />}/>
+        <Route exact path="/" element={<SignInPage />}/>
         <Route path="/SignUp" element={<SignUpPage />}/>
     </Routes>
   );
