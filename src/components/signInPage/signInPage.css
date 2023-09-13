@@ -1,0 +1,102 @@
+img {
+  height: 30px;
+  width: 30px;
+  margin: 0px 20px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-left: 480px;
+  background-color: aliceblue;
+  padding-bottom: 30px;
+  border-radius: 10px;
+  padding: 20px;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  margin-top: 0px;
+}
+.text {
+  color: black;
+  font-size: 40px;
+  font-weight: 700;
+}
+.underline {
+  width: 60px;
+  height: 5px;
+  background-color: black;
+  border-radius: 10px;
+}
+.inputs {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  color: black;
+  font-size: 20px;
+  font-weight: 600;
+}
+.input {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  width: 480px;
+  height: 60px;
+  background-color: rgb(160, 195, 225);
+  border-radius: 7px;
+}
+input {
+  height: 50px;
+  width: 400px;
+  background: transparent;
+  font-size: 22px;
+  color: rgb(9, 9, 39);
+  border-radius: 7px;
+}
+.remember {
+  color: black;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+.signin-button {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  color: rgb(23, 11, 14);
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: rgb(216, 64, 100);
+}
+.forget{
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(48, 39, 39);
+  margin-left: 320px;
+}
+.image-icon {
+  margin-top: 40px;
+  margin-left: 130px;
+}
+.have-acc{
+    margin-top: 20px;
+    margin-left: 130px;
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+}
+.error{
+    color:red;
+}
+.error2{
+    color:red;
+}
+.success{
+    color: green;
+    margin-left: 170px;
+}
