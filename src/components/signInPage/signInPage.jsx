@@ -7,15 +7,18 @@ import user_icon from "../../assets/images/user.png";
 import google from "../../assets/images/search.png";
 import facebook from "../../assets/images/facebook.png";
 import linkedin from "../../assets/images/linkedin.png";
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
+import {signIn} from "../../services/auth.service"
+import {getUser} from "../../services/users.service";
 
 const signInPage = () => {
+    const navigate = useNavigate()
   const [values, setValues] = useState({
     email: "",
     password: "",
   });
   const [error, setError] = useState({});
-  const [submit, setSubmit] = useState(false);
+//   const [submit, setSubmit] = useState(false);
 
   const validation = (values) => {
     const errors = {};
@@ -51,14 +54,21 @@ const signInPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setError(validation(values));
-    setSubmit(true);
+    const response = signIn(values);
+    console.log("res......",response);
+    response.then((value)=>{
+         if(value.status === true){
+            localStorage.setItem("token", value.token);
+            navigate("/home");
+         }
+    })
   };
 
-  useEffect(() => {
-    if (Object.keys(error).length === 0 && submit) {
-      console.log(values);
-    }
-  }, [error]);
+//   useEffect(() => {
+//     if (Object.keys(error).length === 0 && submit) {
+//       console.log(values);
+//     }
+//   }, [error]);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -97,12 +107,12 @@ const signInPage = () => {
         <button className="signin-button" type="submit">
           SIGN IN
         </button>
-        <p className="forget">Forgot Password?</p>
+        {/* <p className="forget">Forgot Password?</p>
         {Object.keys(error).length === 0 && submit ? (
           <p className="success">sign in successfully !!</p>
         ) : (
           <></>
-        )}
+        )} */}
         <div className="image-icon">
           <img src={google} alt="" />
           <img src={facebook} alt="" />
