@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import {getUser} from "../../services/users.service"
 import { Link, useNavigate } from 'react-router-dom'
+import AuthContext from '../../context/auth.context';
 function homePage() {
+    const { logOut } = useContext(AuthContext);
     const navigate = useNavigate()
     const [userData,setUserData]=useState([])
-   const handleClick = ()=>{
-        const removeToken = localStorage.removeItem("token");
-        return removeToken
-    }
     useEffect(()=>{
         const getUserData = getUser();
         console.log("getUserData-->",getUserData);
@@ -16,14 +14,10 @@ function homePage() {
             setUserData(value?.data);
            }
         })
-        const token = localStorage.getItem('token')
-        if(!token){
-            navigate("/")
-        }
     },[])
   return (
     <>
-    <button onClick = {handleClick}><Link to="/">LOG OUT</Link></button>
+    <button onClick = {logOut}>LOG OUT</button>
     <div>
         Hello ReqRes User!
     </div>

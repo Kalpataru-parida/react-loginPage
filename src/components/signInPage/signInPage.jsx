@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./signInPage.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -10,9 +10,11 @@ import linkedin from "../../assets/images/linkedin.png";
 import { Link , useNavigate } from "react-router-dom";
 import {signIn} from "../../services/auth.service"
 import {getUser} from "../../services/users.service";
+import AuthContext from "../../context/auth.context";
 
 const signInPage = () => {
     const navigate = useNavigate()
+    const { setIsAuthenticated } = useContext(AuthContext);
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -59,6 +61,7 @@ const signInPage = () => {
     response.then((value)=>{
          if(value.status === true){
             localStorage.setItem("token", value.token);
+            setIsAuthenticated(true);
             navigate("/home");
          }
     })
