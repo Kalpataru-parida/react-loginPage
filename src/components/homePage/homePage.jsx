@@ -31,7 +31,7 @@ function homePage() {
     {
     userData.length > 0 && userData.map((item,index)=>{
         return (
-            <p>{item.first_name}</p>
+            <p>name: {item.first_name}</p>
         )
     })
     }
