@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import {getUser} from "../../services/users.service"
 import { Link, useNavigate } from 'react-router-dom'
 import AuthContext from '../../context/auth.context';
+import "./homepage.css"
 function homePage() {
     const { logOut } = useContext(AuthContext);
     const navigate = useNavigate()
@@ -17,19 +18,25 @@ function homePage() {
     },[])
   return (
     <>
-    <button onClick = {logOut}>LOG OUT</button>
-    <div>
+    <div className='header'>
         Hello ReqRes User!
     </div>
-    <div>
+    <button onClick = {logOut} className='logout'>LOG OUT</button>
+    <ul className='allignmant'>
     {
     userData.length > 0 && userData.map((item,index)=>{
         return (
-            <p>name: {item.first_name}</p>
+            <li className='card'> 
+                <img src = {item.avatar} alt = {item.first_name} className='image'/>
+                <div className="user">
+                    <p className='name'>Name:{item.first_name} {item.last_name}</p>
+                    <p className='email'>Email:{item.email}</p>
+                </div>
+            </li>
         )
     })
     }
-    </div>
+    </ul>
     </>
   )
 }
