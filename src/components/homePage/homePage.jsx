@@ -29,8 +29,8 @@ function homePage() {
             <li className='card'> 
                 <img src = {item.avatar} alt = {item.first_name} className='image'/>
                 <div className="user">
-                    <p className='name'>Name:{item.first_name} {item.last_name}</p>
-                    <p className='email'>Email:{item.email}</p>
+                    <p className='name'>{item.first_name}</p>
+                    <p className='email'>{item.email}</p>
                 </div>
             </li>
         )
